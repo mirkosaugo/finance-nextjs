@@ -7,6 +7,7 @@ import { NextResponse } from "next/server";
 
 const isProtectedRoute = createRouteMatcher([
   '/',
+  // '/api(.*)',
   // '/forum(.*)', : all forum routes are protected
 ]);
 
