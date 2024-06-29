@@ -1,6 +1,9 @@
+import { UserButton } from "@clerk/nextjs";
 import React from "react";
+
 import Logo from "@/components/Logo";
 import Navigation from "@/components/Navigation";
+import WelcomeMessage from "@/components/WelcomeMessage";
 
 const Header = () => {
   return (
@@ -11,7 +14,9 @@ const Header = () => {
             <Logo />
             <Navigation />
           </div>
+          <UserButton />
         </div>
+        <WelcomeMessage />
       </div>
     </header>
   );
