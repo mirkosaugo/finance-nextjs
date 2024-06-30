@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useMedia } from "react-use";
 
-import NavButton from "@/components/NavButton";
+import { NavButton } from "@/components";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import { Button } from "./ui/button";
