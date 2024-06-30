@@ -1,7 +1,6 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vercel'
 
-
 import accounts from './accounts'
 
 export const runtime = 'edge'
@@ -11,7 +10,13 @@ const app = new Hono().basePath('/api')
 // need to append every route to the exported routes const to generate RPC types
 const routes = app.route('/accounts', accounts);
 
+// app.onError((error, ctx) => {
+//   if (error instanceof HTTPException) {
+//     return error.getResponse();
+//   }
 
+//   return ctx.json({ error: 'Internal Server Error' }, 500);
+// });
 
 
 // app
