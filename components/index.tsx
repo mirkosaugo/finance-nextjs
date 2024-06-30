@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 
-export const Header = dynamic(() => import("./Header"), {
+export const Header = dynamic(() => import("@/components/Header"), {
   loading: () => <p>Loading...</p>,
 });
 

@@ -1,10 +1,10 @@
-import Header from "@/components/Header";
+// const Header = dynamic(() => import("@/components/Header"), {
+//   loading: () => <p>Loading...</p>,
+// });
 
-export default function DashBoardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import { Header } from "@components";
+
+export default function DashBoardLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
