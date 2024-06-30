@@ -15,6 +15,13 @@
       "when": 1719676805281,
       "tag": "0001_cuddly_warstar",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1719765962409,
+      "tag": "0002_breezy_skaar",
+      "breakpoints": true
     }
   ]
 }
