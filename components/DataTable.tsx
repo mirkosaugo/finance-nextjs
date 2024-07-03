@@ -67,7 +67,16 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />
         {table.getFilteredSelectedRowModel().rows.length > 0 && (
-          <Button disabled={disabled} variant="outline" size="sm" className="ml-auto text-xs font-normal">
+          <Button
+            onClick={() => {
+              onDelete(table.getFilteredSelectedRowModel().rows);
+              table.resetRowSelection();
+            }}
+            disabled={disabled}
+            variant="outline"
+            size="sm"
+            className="ml-auto text-xs font-normal"
+          >
             <Trash className="size-4" /> Delete ({table.getFilteredSelectedRowModel().rows.length})
           </Button>
         )}
