@@ -41,7 +41,7 @@ export const AccountForm = ({ defaultValues, disabled, id, onDelete, onSubmit }:
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
         <FormField
           control={form.control}
           name="name"
@@ -56,7 +56,7 @@ export const AccountForm = ({ defaultValues, disabled, id, onDelete, onSubmit }:
             </FormItem>
           )}
         />
-        <div className="mt-4 flex flex-row gap-2">
+        <div className="flex flex-row gap-x-2">
           <Button className="w-full" disabled={disabled} type="submit">
             {id ? "Save" : "Create"}
           </Button>
