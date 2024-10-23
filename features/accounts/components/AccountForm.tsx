@@ -61,7 +61,7 @@ export const AccountForm = ({ defaultValues, disabled, id, onDelete, onSubmit }:
             {id ? "Save" : "Create"}
           </Button>
           {!!id && (
-            <Button variant="outline" onClick={handleDelete} disabled={disabled}>
+            <Button variant="outline" onClick={handleDelete} disabled={disabled} type="button">
               <Trash className="size-4" />
             </Button>
           )}

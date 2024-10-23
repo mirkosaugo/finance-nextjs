@@ -7,7 +7,7 @@ import { DataTable } from "@/components/DataTable";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useDeleteAccounts } from "@/features/accounts/api/useDeleteAccount";
+import { useDeleteAccounts } from "@/features/accounts/api/useDeleteAccounts";
 import { useGetAccounts } from "@/features/accounts/api/useGetAccounts";
 import { useModalsStore } from "@/stores/modals";
 

@@ -5,23 +5,20 @@ import { toast } from 'sonner';
 import { client } from "@/lib/hono";
 
 
-type ResponseType = InferResponseType<typeof client.api.accounts[":id"]["$delete"]>;
-type RequestType = InferRequestType<typeof client.api.accounts[":id"]["$delete"]>;
+type ResponseType = InferResponseType<typeof client.api.accounts.delete.$post>;
+type RequestType = InferRequestType<typeof client.api.accounts.delete.$post>["json"];
 
 
-
-
-export const useDeleteAccount = (id?: string) => {
+export const useDeleteAccounts = () => {
   const queryClient = useQueryClient();
 
-  const mutation = useMutation<ResponseType, Error>({
-    mutationFn: async () => {
-      const response = await client.api.accounts[":id"].$delete({ param: { id } });
+  const mutation = useMutation<ResponseType, Error, RequestType>({
+    mutationFn: async (json) => {
+      const response = await client.api.accounts.delete.$post({ json });
       return await response.json();
     },
     onSuccess: () => {
       toast.success('Account deleted successfully');
-      queryClient.invalidateQueries({ queryKey: ['account', { id }] });
       queryClient.invalidateQueries({ queryKey: ['accounts'] });
 
     },

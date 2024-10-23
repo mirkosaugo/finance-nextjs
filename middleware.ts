@@ -1,8 +1,6 @@
 // CLERK
-// The clerkMiddleware helper enables authentication and is where you'll configure your protected routes. 
+// The clerkMiddleware helper enables authentication and is where you'll configure your protected routes.
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-
-
 import { NextResponse } from "next/server";
 
 const isProtectedRoute = createRouteMatcher([

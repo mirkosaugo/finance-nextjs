@@ -29,11 +29,8 @@ export const NewAccountSheet = () => {
     <Sheet open={isNewAccountModalOpen} onOpenChange={setNewAccountModalOpen}>
       <SheetContent className="space-y-4">
         <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your account and remove your data from our
-            servers.
-          </SheetDescription>
+          <SheetTitle>New Account</SheetTitle>
+          <SheetDescription>Create a new account to track your transactions.</SheetDescription>
         </SheetHeader>
         <AccountForm
           onSubmit={onSubmit}

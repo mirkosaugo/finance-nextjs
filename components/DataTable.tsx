@@ -16,6 +16,7 @@ import { Trash } from "lucide-react";
 import { useState } from "react";
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import useConfirm from "@/hooks/useConfirm";
 import { Button } from "@components/ui/button";
 import { Input } from "@components/ui/input";
 
@@ -34,6 +35,7 @@ export function DataTable<TData, TValue>({
   filterKey,
   onDelete,
 }: DataTableProps<TData, TValue>) {
+  const [ConfirmationDialog, confirm] = useConfirm("Delete", "Are you sure you want to delete this item?");
   const [sorting, setSorting] = useState<SortingState>([]);
 
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -68,7 +70,9 @@ export function DataTable<TData, TValue>({
         />
         {table.getFilteredSelectedRowModel().rows.length > 0 && (
           <Button
-            onClick={() => {
+            onClick={async () => {
+              const isConfirmed = await confirm();
+              if (!isConfirmed) return;
               onDelete(table.getFilteredSelectedRowModel().rows);
               table.resetRowSelection();
             }}
@@ -129,6 +133,7 @@ export function DataTable<TData, TValue>({
           Next
         </Button>
       </div>
+      <ConfirmationDialog />
     </div>
   );
 }
