@@ -22,11 +22,11 @@ const WrapperCard = ({ children }: { children: React.ReactNode }) => (
 export default function AccountsPage() {
   const { setNewAccountModalOpen } = useModalsStore(["setNewAccountModalOpen"]);
   const { data: accounts = [], error, isError, isLoading } = useGetAccounts();
-  const { isPending, mutate } = useDeleteAccounts();
+  const { isPending: isDeleting, mutate: deleteAccounts } = useDeleteAccounts();
 
   const onDelete = (rows: Row<ItemType>[]) => {
     const ids = rows.map((row) => row.original.id);
-    mutate({ ids });
+    deleteAccounts({ ids });
   };
 
   if (isLoading) {
@@ -55,7 +55,7 @@ export default function AccountsPage() {
         </Button>
       </CardHeader>
       <CardContent>
-        <DataTable columns={columns} data={accounts} filterKey="name" onDelete={onDelete} disabled={isPending} />
+        <DataTable columns={columns} data={accounts} filterKey="name" onDelete={onDelete} disabled={isDeleting} />
       </CardContent>
     </WrapperCard>
   );
